@@ -43,6 +43,16 @@ const restaurant = {
     console.log(otherIngredints);
   },
 };
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i[0] + 1}: ${el[1]}`);
+}
+// console.log([...menu.entries()]);
 
 // const rest1 = {
 //   name: 'Capri',
@@ -68,8 +78,8 @@ const restaurant = {
 // rest1.owner = rest1.owner && '<ANONYMOUS';
 // rest2.owner = rest2.owner && '<ANONYMOUS';
 
-// rest1.numGuests &&= '<ANONYMOUS';
-// rest2.numGuests &&= '<ANONYMOUS';
+// rest1.owner &&= '<ANONYMOUS';
+// rest2.owner &&= '<ANONYMOUS';
 
 // rest1 && console.log(rest1);
 // console.log(rest2);
