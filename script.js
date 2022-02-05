@@ -12,6 +12,12 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  openingHours: {
+    thu: { open: 12, close: 22 },
+    fri: { open: 11, close: 23 },
+    sat: { open: 0, close: 24 },
+  },
+
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -32,59 +38,89 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
     );
   },
-
-  openingHours: {
-    thu: { open: 12, close: 22 },
-    fri: { open: 11, close: 23 },
-    sat: { open: 0, close: 24 },
+  orderPizza: function (mainIngredient, ...otherIngredints) {
+    console.log(mainIngredient);
+    console.log(otherIngredints);
   },
 };
 
-// Spread Operator
-const arr = [7, 8, 9];
-const badArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badArr);
+// SPREAD, because on RIGHT side of =
+// const arr = [1, 2, ...[3, 4]];
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
-console.log(...newArr);
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// // REST, because on LEFT side of =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-// Copy Array
-const mainMenuCopy = [...restaurant.mainMenu];
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
-// Join 2 arrays
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
+// // Objects
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
-// Iterables: arrays, strings, maps, sets. NOT Objects
-const str = 'Jonas';
-const letters = [...str, '', 'S.'];
-console.log(letters);
-console.log(...str);
+// // Functions
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+// const x = [23, 5, 7];
+// add(...x);
 
-// Real-world example
-const ingredients = [
-  // prompt("Let's make pasta! Ingredient 1?"),
-  // prompt('Ingredient 2?'),
-  // prompt('Ingredient 3?'),
-];
+// restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spanish');
+// restaurant.orderPizza('mushrooms');
 
-restaurant.orderPasta(...ingredients);
+// // Spread Operator
+// const arr = [7, 8, 9];
+// const badArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badArr);
 
-// Objects
-const newRestaurant = {
-  foundingYear: 2020,
-  ...restaurant,
-  founder: 'Guiseppe',
-};
-console.log(newRestaurant);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// // Copy Array
+// const mainMenuCopy = [...restaurant.mainMenu];
+
+// // Join 2 arrays
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// // Iterables: arrays, strings, maps, sets. NOT Objects
+// const str = 'Jonas';
+// const letters = [...str, '', 'S.'];
+// console.log(letters);
+// console.log(...str);
+
+// // Real-world example
+// const ingredients = [
+//   // prompt("Let's make pasta! Ingredient 1?"),
+//   // prompt('Ingredient 2?'),
+//   // prompt('Ingredient 3?'),
+// ];
+
+// restaurant.orderPasta(...ingredients);
+
+// // Objects
+// const newRestaurant = {
+//   foundingYear: 2020,
+//   ...restaurant,
+//   founder: 'Guiseppe',
+// };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristorante Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 //// Destructuring Objects
 // restaurant.orderDelivery({
