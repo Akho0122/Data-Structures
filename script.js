@@ -38,48 +38,66 @@ const restaurant = {
   },
 };
 
+//// --------------- REST PATTERN AND PARAMETERS --------------- ////
+
+// // SPREAD, because on RIGHT side of =
+// const arr = [1, 2, ...[3, 4]];
+// // REST, because on LEFT side of =
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
+
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
+
+// // Objects
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
+
 //// --------------- SPREAD OPERATOR --------------- ////
 
-const arr = [7, 8, 9];
-const badArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badArr);
+// const arr = [7, 8, 9];
+// const badArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badArr);
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
 
-console.log(...newArr);
-console.log(1, 2, 7, 8, 9);
+// console.log(...newArr);
+// console.log(1, 2, 7, 8, 9);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
-const mainMenuCopy = [...restaurant.mainMenu];
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// const mainMenuCopy = [...restaurant.mainMenu];
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
-// Iterables: arrays, strings, maps, sets. NOT Objects
-const str = 'Jonas';
-const letters = [...str, ' ', 'S.'];
-console.log(letters);
-console.log(...str);
+// // Iterables: arrays, strings, maps, sets. NOT Objects
+// const str = 'Jonas';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
+// console.log(...str);
 
-const ingredients = [
-  // prompt('Lets make pasta! Ingredient 1?'),
-  // prompt('Ingredient 2?'),
-  // prompt('Ingredient 3?'),
-];
-console.log(ingredients);
+// const ingredients = [
+//   // prompt('Lets make pasta! Ingredient 1?'),
+//   // prompt('Ingredient 2?'),
+//   // prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
 
-restaurant.orderPasta(...ingredients);
+// restaurant.orderPasta(...ingredients);
 
-// Objects
-const newRestaurant = { ...restaurant, founder: 'Guiseppe', fondedYear: 1990 };
-console.log(newRestaurant);
+// // Objects
+// const newRestaurant = { ...restaurant, founder: 'Guiseppe', fondedYear: 1990 };
+// console.log(newRestaurant);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristoranto Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristoranto Roma';
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 //// --------------- DESTRUCTURING OBJECTS --------------- ////
 
