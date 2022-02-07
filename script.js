@@ -35,49 +35,72 @@ const restaurant = {
   },
 };
 
-//// --------------- DESTRUCTURING OBJECTS --------------- ////
+//// --------------- SPREAD OPERATOR --------------- ////
 
-restaurant.orderDelivery({
-  time: '22 : 30',
-  adress: 'Via del Sole 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
-restaurant.orderDelivery({
-  address: 'Via del Sole 21',
-  starterIndex: 1,
-});
+const arr = [7, 8, 9];
+const badArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badArr);
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+const newArr = [1, 2, ...arr];
+console.log(newArr);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
 
-// Default values
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
 
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const mainMenuCopy = [...restaurant.mainMenu];
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
 
-// Mutating variables
-let a = 111;
-let b = 999;
-
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
-console.log(a, b);
-
-// Nested Objects
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// Iterables: arrays, strings, maps, sets. NOT Objects
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+console.log(...str);
 
 //// --------------- DESTRUCTURING OBJECTS --------------- ////
+
+// restaurant.orderDelivery({
+//   time: '22 : 30',
+//   adress: 'Via del Sole 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
+// restaurant.orderDelivery({
+//   address: 'Via del Sole 21',
+//   starterIndex: 1,
+// });
+
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+//// Default values
+
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+//// Mutating variables
+// let a = 111;
+// let b = 999;
+
+// const obj = { a: 23, b: 7, c: 14 };
+// ({ a, b } = obj);
+// console.log(a, b);
+
+//// Nested Objects
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
 
 //// --------------- DESTRUCTURING ARRAYS --------------- ////
 
@@ -118,5 +141,3 @@ console.log(o, c);
 //// Default values
 // const [p = 1, q = 1, r = 1] = [8, 9];
 // console.log(p, q, r);
-
-//// --------------- DESTRUCTURING ARRAYS --------------- ////
