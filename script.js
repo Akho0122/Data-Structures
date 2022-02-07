@@ -21,6 +21,9 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
@@ -59,6 +62,24 @@ const str = 'Jonas';
 const letters = [...str, ' ', 'S.'];
 console.log(letters);
 console.log(...str);
+
+const ingredients = [
+  // prompt('Lets make pasta! Ingredient 1?'),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { ...restaurant, founder: 'Guiseppe', fondedYear: 1990 };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristoranto Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
 
 //// --------------- DESTRUCTURING OBJECTS --------------- ////
 
