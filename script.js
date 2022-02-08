@@ -41,44 +41,123 @@ const restaurant = {
   },
 };
 
-//// --------------- LOCIGAL ASSIGNMENT OPERATORS--------------- ////
+//// --------------- ASSIGNMENT 1 --------------- ////
 
-const rest1 = {
-  name: 'Capri',
-  numGuests: 0,
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 };
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
+//// 1.
+
+const [player1, player2] = game.players;
+console.log(player1, player2);
+
+//// 2.
+
+const [gk, ...fieldPlayers] = player1;
+console.log(gk, fieldPlayers);
+
+//// 3.
+
+const [...allPlayers] = [...player1, ...player2];
+console.log(allPlayers);
+
+//// 4.
+
+const playersFinal = [...player1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(playersFinal);
+
+//// 5.
+
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+//// 6.
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
 };
+printGoals(...game.scored);
 
-// OR assignment operator
-rest1.numGuests = rest1.numGuests || 10;
-rest2.numGuests = rest2.numGuests || 10;
-rest1.numGuests ||= 10;
-rest2.numGuests ||= 10;
+//// 7.
+team1 < team2 && console.log('team1 is more likely to win');
+team2 < team1 && console.log('team2 is more likely to win');
 
-// Nullish assignment operator
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
+//// --------------- LOCIGAL ASSIGNMENT OPERATORS --------------- ////
 
-rest1.owner = rest1.owner && '<ANONYNOUS>';
-rest2.owner = rest2.owner && '<ANONYNOUS>';
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>';
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 0,
+// };
 
-console.log(rest1);
-console.log(rest2);
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
+
+// // OR assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// // Nullish assignment operator
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYNOUS>';
+// rest2.owner = rest2.owner && '<ANONYNOUS>';
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
+
+// console.log(rest1);
+// console.log(rest2);
 
 //// --------------- NULLISH OPERATOR--------------- ////
 
-restaurant.numGuests = 0;
-const guests = restaurant.numGuests || 10;
-console.log(guests);
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
 
-const guestCorrect = restaurant.numGuests ?? 10;
-console.log(guestCorrect);
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
 
 //// --------------- SHORT CIRCUITS (&& AND ||) --------------- ////
 
