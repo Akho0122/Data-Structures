@@ -36,7 +36,36 @@ const restaurant = {
       ${adress} at ${time}`
     );
   },
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
 };
+
+//// --------------- SHORT CIRCUITS (&& AND ||) --------------- ////
+// Use ANY data type, return ANY data type
+
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// --AND--
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'Jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
 //// --------------- REST PATTERN AND PARAMETERS --------------- ////
 
@@ -55,6 +84,23 @@ const restaurant = {
 // // Objects
 // const { sat, ...weekdays } = restaurant.openingHours;
 // console.log(weekdays);
+
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onion', 'olivies', 'spinach');
+// restaurant.orderPizza('mushrooms');
 
 //// --------------- SPREAD OPERATOR --------------- ////
 
