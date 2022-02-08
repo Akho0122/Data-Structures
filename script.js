@@ -38,17 +38,43 @@ const restaurant = {
   },
 };
 
-//// --------------- OBJECT LITERALS --------------- ////
+//// --------------- OPTIONAL CHAINING --------------- ////
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon);
+}
+// WITH optional chaining
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+// Method
+
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// ARRAYS
+// const users = [{ name: 'John', email: 'john@' }];
+const users = [];
+console.log(users[0]?.name ?? 'User array empty');
+
+if (users.length > 0) console.log(users[0]?.name);
+else console.log('User array empty');
 
 //// --------------- LOOPING ARRAYS --------------- ////
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-for (const item of menu) {
-  console.log(item);
-}
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (const item of menu) {
+//   console.log(item);
+// }
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
 
 //// --------------- ASSIGNMENT 1 --------------- ////
 
