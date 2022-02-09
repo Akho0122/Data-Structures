@@ -38,51 +38,69 @@ const restaurant = {
   },
 };
 
+//// --------------- ASSIGNMENT 4 --------------- ////
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${`✅`.repeat(i + 1)}`);
+  }
+});
+
 //// --------------- STRINGS PART 3 --------------- ////
 
-console.log('a+very+nice+string'.split('+'));
-console.log('Akho 0122'.split(' '));
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Akho 0122'.split(' '));
 
-const [first, second] = 'Akho Oribjonov'.split(' ');
+// const [first, second] = 'Akho Oribjonov'.split(' ');
 
-const newName = ['Mr.', first, second.toUpperCase()].join(' ');
-console.log(newName);
+// const newName = ['Mr.', first, second.toUpperCase()].join(' ');
+// console.log(newName);
 
-const capitalizeName = function (name) {
-  const names = name.split(' ');
-  const namesUpper = [];
-  for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
-    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
-  }
-  console.log(namesUpper.join(' '));
-};
-capitalizeName('jesico ann amith davis');
-capitalizeName('akho oribjonov');
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+//   for (const n of names) {
+//     // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// };
+// capitalizeName('jesico ann amith davis');
+// capitalizeName('akho oribjonov');
 
-const message = 'Go to gate 23!';
-console.log(message.padStart(25, '+'));
-console.log(message.padStart(25, '+').padEnd(35, '+'));
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+'));
+// console.log(message.padStart(25, '+').padEnd(35, '+'));
 
-const maskCreditCard = function (number) {
-  const str = number + '';
-  const last = str.slice(-4);
-  return last.padStart(str.length, '*');
-};
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
 
-console.log(maskCreditCard(212323214141232112));
-console.log(maskCreditCard('23145675432456432'));
+// console.log(maskCreditCard(212323214141232112));
+// console.log(maskCreditCard('23145675432456432'));
 
-// Repeat
-const message2 = 'Bad weather... All Departures delayed... ';
-console.log(message2.repeat(5));
+// // Repeat
+// const message2 = 'Bad weather... All Departures delayed... ';
+// console.log(message2.repeat(5));
 
-const planesInLine = function (n) {
-  console.log(`There are ${n} planes in line ${`✈`.repeat(n)}`);
-};
-planesInLine(5);
-planesInLine(3);
-planesInLine(12);
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${`✈`.repeat(n)}`);
+// };
+// planesInLine(5);
+// planesInLine(3);
+// planesInLine(12);
 
 //// --------------- STRINGS PART 2 --------------- ////
 
