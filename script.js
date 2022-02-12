@@ -53,65 +53,71 @@ const restaurant = {
 
 //// --------------- ASSIGNMENT 4 --------------- ////
 
-// document.body.append(document.createElement('textarea'));
-// document.body.append(document.createElement('button'));
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
 
-// document.querySelector('button').addEventListener('click', function () {
-//   const text = document.querySelector('textarea').value;
-//   const rows = text.split('\n');
-//   for (const [i, row] of rows.entries()) {
-//     const [first, second] = row.toLowerCase().trim().split('_');
-//     const output = `${first}${second.replace(
-//       second[0],
-//       second[0].toUpperCase()
-//     )}`;
-//     console.log(`${output.padEnd(20)}${`✅`.repeat(i + 1)}`);
-//   }
-// });
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
+});
+
+// underscore_case
+// first_name
+// Some_Variable
+// calculate_AGE
+// delayed_departure
 
 //// --------------- STRINGS PART 3 --------------- ////
 
-console.log('a+very+nice+string'.split('+'));
-console.log('Jonas'.split(' '));
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas'.split(' '));
 
-const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 
-console.log(newName);
+// console.log(newName);
 
-const capitalizeName = function (name) {
-  const names = name.split(' ');
-  const namesUpper = [];
-  for (const n of names) {
-    namesUpper.push(n[0].toUpperCase() + n.slice(1));
-  }
-  console.log(namesUpper.join(' '));
-};
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+//   for (const n of names) {
+//     namesUpper.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(namesUpper.join(' '));
+// };
 
-capitalizeName('jessico ann smith davis');
-capitalizeName('jessico akho');
+// capitalizeName('jessico ann smith davis');
+// capitalizeName('jessico akho');
 
-const message = 'Go to gate 23!';
-console.log(message.padStart(24, '+').padEnd(35, '+'));
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(24, '+').padEnd(35, '+'));
 
-const masking = function (number) {
-  const str = number + '';
-  const sliced = str.slice(-4);
-  return sliced.padStart(str.length, '*');
-};
-console.log(masking(12343242432423));
-console.log(masking('4354444343223326'));
-console.log(masking(64535643532555));
+// const masking = function (number) {
+//   const str = number + '';
+//   const sliced = str.slice(-4);
+//   return sliced.padStart(str.length, '*');
+// };
+// console.log(masking(12343242432423));
+// console.log(masking('4354444343223326'));
+// console.log(masking(64535643532555));
 
-const message2 = 'Bad weather... All departures delayed... ';
-console.log(message2.repeat(5));
+// const message2 = 'Bad weather... All departures delayed... ';
+// console.log(message2.repeat(5));
 
-const planesInline = function (n) {
-  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
-};
-planesInline(5);
-planesInline(8);
-planesInline(6);
+// const planesInline = function (n) {
+//   console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+// };
+// planesInline(5);
+// planesInline(8);
+// planesInline(6);
 
 //// --------------- STRINGS PART 2 --------------- ////
 
