@@ -306,32 +306,54 @@ const restaurant = {
 
 ////////////////////////// LOOPING ARRAYS /////////////////////////
 
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-for (const item of menu) {
-  console.log(item);
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// for (const item of menu) {
+//   console.log(item);
+// }
+
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+// ////////////////////////// OPTIONAL CHAINING ///////////////////////
+
+// if (restaurant.openingHours && restaurant.openingHours.mon)
+//   console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours?.mon?.open);
+
+// const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// for (const day of days) {
+//   console.log(day);
+//   const open = restaurant.openingHours[day]?.open ?? 'Closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// const users = [{ name: 'Jonas', email: 'jonas@gmail.com' }];
+// console.log(users[0]?.name ?? 'Users array is empty');
+
+////////////////////////// LOOPING OBJECTS ///////////////////////
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open ${properties.length} days: `;
+
+for (const day of Object.keys(openingHours)) {
+  openStr += `${day}, `;
 }
+console.log(openStr);
 
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
+const values = Object.values(openingHours);
+console.log(values);
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
-
-////////////////////////// OPTIONAL CHAINING ///////////////////////
-
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
-
-console.log(restaurant.openingHours?.mon?.open);
-
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-
-for (const day of days) {
-  console.log(day);
-  const open = restaurant.openingHours[day]?.open ?? 'Closed';
-  console.log(`On ${day}, we open at ${open}`);
-}
-
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
-console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
-
-const users = [{ name: 'Jonas', email: 'jonas@gmail.com' }];
-console.log(users[0]?.name ?? 'Users array is empty');
