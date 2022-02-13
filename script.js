@@ -33,6 +33,9 @@ const restaurant = {
        will be delivered to ${address} at ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
 //////////////// ARRAY DESTRUCTURING //////////////////
@@ -69,36 +72,71 @@ const restaurant = {
 
 //////////////// OBJECT DESTRUCTURING //////////////////
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
 
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
 
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
-console.log(a, b);
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// ({ a, b } = obj);
+// console.log(a, b);
 
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
 
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via Del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
-restaurant.orderDelivery({
-  address: 'Via Del Sole, 22',
-});
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via Del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
+// restaurant.orderDelivery({
+//   address: 'Via Del Sole, 22',
+// });
+
+//////////////// SPREAD OPERATOR //////////////////
+
+const arr = [7, 8, 9];
+const newArr = [1, 3, ...arr];
+console.log(newArr);
+const badArr = [1, 3, arr[0], arr[1], arr[2]];
+console.log(badArr);
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+const mainMenuCopy = [...restaurant.mainMenu];
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+const str = 'Jonas';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+
+const ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+restaurant.orderPasta(...ingredients);
+
+const newRestaurant = { foudingYear: 1998, ...restaurant, founder: 'Guisappe' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristoranto Romano';
+console.log(restaurantCopy.name, restaurant.name);
