@@ -36,6 +36,9 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+  orderPizza: function (mainIng, ...otherIngs) {
+    console.log(mainIng, ...otherIngs);
+  },
 };
 
 //////////////// ARRAY DESTRUCTURING //////////////////
@@ -108,35 +111,68 @@ const restaurant = {
 
 //////////////// SPREAD OPERATOR //////////////////
 
-const arr = [7, 8, 9];
-const newArr = [1, 3, ...arr];
-console.log(newArr);
-const badArr = [1, 3, arr[0], arr[1], arr[2]];
-console.log(badArr);
-console.log(...newArr);
+// const arr = [7, 8, 9];
+// const newArr = [1, 3, ...arr];
+// console.log(newArr);
+// const badArr = [1, 3, arr[0], arr[1], arr[2]];
+// console.log(badArr);
+// console.log(...newArr);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
 
-const mainMenuCopy = [...restaurant.mainMenu];
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
+// const mainMenuCopy = [...restaurant.mainMenu];
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
 
-const str = 'Jonas';
-const letters = [...str, ' ', 'S.'];
-console.log(letters);
+// const str = 'Jonas';
+// const letters = [...str, ' ', 'S.'];
+// console.log(letters);
 
-const ingredients = [
-  prompt("Let's make pasta! Ingredient 1?"),
-  prompt('Ingredient 2?'),
-  prompt('Ingredient 3?'),
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
+// restaurant.orderPasta(...ingredients);
+
+// const newRestaurant = { foudingYear: 1998, ...restaurant, founder: 'Guisappe' };
+// console.log(newRestaurant);
+
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = 'Ristoranto Romano';
+// console.log(restaurantCopy.name, restaurant.name);
+
+//////////////// REST OPERATOR //////////////////
+
+const arr = [1, 2, ...[3, 4]];
+
+const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, ...others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
 ];
-console.log(ingredients);
-restaurant.orderPasta(...ingredients);
+console.log(pizza, risotto, otherFood);
 
-const newRestaurant = { foudingYear: 1998, ...restaurant, founder: 'Guisappe' };
-console.log(newRestaurant);
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Ristoranto Romano';
-console.log(restaurantCopy.name, restaurant.name);
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 3);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olivies', 'spinach');
+restaurant.orderPizza('mushrooms');
