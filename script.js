@@ -179,26 +179,130 @@ const restaurant = {
 
 ///////////////////// SHORT CICUITING ////////////////////////
 
-console.log(3 || 'Jonas');
-console.log('' || 'Jonas');
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+// console.log(3 || 'Jonas');
+// console.log('' || 'Jonas');
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
-restaurant.numGuests = 0;
-const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guests1);
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// restaurant.numGuests = 0;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
 
-console.log(0 && 'Jonas');
-console.log(7 && 'Jonas');
-console.log('Hello' && 23 && null && 'Jonas');
+// console.log(0 && 'Jonas');
+// console.log(7 && 'Jonas');
+// console.log('Hello' && 23 && null && 'Jonas');
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
-restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
+// restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 
-const guests = restaurant.numGuests ?? 10;
-console.log(guests);
+// const guests = restaurant.numGuests ?? 10;
+// console.log(guests);
+
+///////////////////// LOGICAL ASSIGNMENT OPERATOR /////////////////////
+
+// const rest1 = {
+//   name: 'Capri',
+//   numGuests: 0,
+// };
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ??= 10;
+// rest2.numGuests ??= 10;
+
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// rest2.owner = rest2.owner && '<ANONYMOUS';
+// rest1.owner = rest1.owner && '<ANONYMOUS';
+// rest1.owner &&= '<ANONYMOUS>';
+// rest2.owner &&= '<ANONYMOUS>';
+
+// console.log(rest1);
+// console.log(rest2);
+
+////////////////////////// ASSIGNMENT 1 /////////////////////////
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: { team1: 1.33, x: 3.25, team2: 6.5 },
+};
+
+// 1.
+
+const [player1, player2] = game.players;
+console.log(player1, player2);
+
+// 2.
+
+const [gk, ...fieldPlayers] = player1;
+console.log(gk, fieldPlayers);
+
+// 3.
+
+const [...allPlayers] = [...player1, ...player2];
+console.log(allPlayers);
+
+// 4.
+
+const playersFinal = [...player1, 'Thiago', 'Coutinho', 'Peristic'];
+console.log(playersFinal);
+
+// 5.
+
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+// 6.
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored: ${players}`);
+};
+printGoals(...game.scored);
+
+// 7.
+
+team1 > team2 && console.log(`${game.team1} is more likely to win`);
+team1 < team2 && console.log(`${game.team2} is more likely to win`);
