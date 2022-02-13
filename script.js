@@ -73,7 +73,7 @@ const restaurant = {
 // const [p = 0, q = 0, r = 0] = [8, 9];
 // console.log(p, q, r);
 
-//////////////// OBJECT DESTRUCTURING //////////////////
+////////////////////////// OBJECT DESTRUCTURING //////////////////////
 
 // const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
@@ -109,7 +109,7 @@ const restaurant = {
 //   address: 'Via Del Sole, 22',
 // });
 
-//////////////// SPREAD OPERATOR //////////////////
+///////////////////////// SPREAD OPERATOR ////////////////////////////
 
 // const arr = [7, 8, 9];
 // const newArr = [1, 3, ...arr];
@@ -144,35 +144,61 @@ const restaurant = {
 // restaurantCopy.name = 'Ristoranto Romano';
 // console.log(restaurantCopy.name, restaurant.name);
 
-//////////////// REST OPERATOR //////////////////
+///////////////////////// REST OPERATOR ////////////////////////////
 
-const arr = [1, 2, ...[3, 4]];
+// const arr = [1, 2, ...[3, 4]];
 
-const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
-console.log(a, b, ...others);
+// const [a, b, ...others] = [1, 2, 3, 4, 5, 6];
+// console.log(a, b, ...others);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays);
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays);
 
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  console.log(sum);
-};
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 3);
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 3);
 
-const x = [23, 5, 7];
-add(...x);
+// const x = [23, 5, 7];
+// add(...x);
 
-restaurant.orderPizza('mushrooms', 'onion', 'olivies', 'spinach');
-restaurant.orderPizza('mushrooms');
+// restaurant.orderPizza('mushrooms', 'onion', 'olivies', 'spinach');
+// restaurant.orderPizza('mushrooms');
+
+///////////////////// SHORT CICUITING ////////////////////////
+
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+restaurant.numGuests = 0;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'Jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+const guests = restaurant.numGuests ?? 10;
+console.log(guests);
