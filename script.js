@@ -572,37 +572,58 @@ const restaurant = {
 //   console.log(`[${half} HALF] ${minute}: ${event}`);
 // }
 
+////////////////////////// STRINGS ///////////////////////////
+
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
+// console.log('B737'.length);
+// console.log(airline.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') {
+//     console.log('You got the middle seat');
+//   } else {
+//     console.log('You got lucky');
+//   }
+// };
+// checkMiddleSeat('11B');
+// checkMiddleSeat('12C');
+// checkMiddleSeat('3E');
+
+// console.log(new String('jonas'));
+
 const airline = 'TAP Air Portugal';
-const plane = 'A320';
-console.log(plane[0]);
-console.log(plane[1]);
-console.log(plane[2]);
-console.log('B737'[0]);
-console.log('B737'.length);
-console.log(airline.length);
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
 
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('Portugal'));
+const passenger = 'jOnAS';
+const passengerLower = passenger.toLowerCase();
+const passengerNew = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerNew);
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+const email = 'hello@example.com';
+const loginEmail = ' Hello@Example.Com \n';
 
-console.log(airline.slice(0, airline.indexOf(' ')));
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
-console.log(airline.slice(-2));
-console.log(airline.slice(1, -1));
+const lowerEmail = loginEmail.toLowerCase().trim();
+console.log(email === lowerEmail);
 
-const checkMiddleSeat = function (seat) {
-  const s = seat.slice(-1);
-  if (s === 'B' || s === 'E') {
-    console.log('You got the middle seat');
-  } else {
-    console.log('You got lucky');
-  }
-};
-checkMiddleSeat('11B');
-checkMiddleSeat('12C');
-checkMiddleSeat('3E');
-
-console.log(new String('jonas'));
+const priceGB = '288,98&';
+const priceUS = priceGB.replace(',', '.').replace('&', '$');
+console.log(priceUS);
