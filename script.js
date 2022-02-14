@@ -653,44 +653,63 @@ const restaurant = {
 // checkBaggage('Socks and a camera');
 // checkBaggage('Got some snacks and a gun for protection');
 
-console.log('a+very+nice+string'.split('+'));
-console.log('Jonas Schmedtman'.split(' '));
-const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Jonas Schmedtman'.split(' '));
+// const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
-const capitalizeName = function (name) {
-  const splitted = name.split(' ');
-  console.log(splitted);
-  const namesUpper = [];
-  for (const el of splitted) {
-    namesUpper.push(el.replace(el[0], el[0].toUpperCase()));
+// const capitalizeName = function (name) {
+//   const splitted = name.split(' ');
+//   console.log(splitted);
+//   const namesUpper = [];
+//   for (const el of splitted) {
+//     namesUpper.push(el.replace(el[0], el[0].toUpperCase()));
+//   }
+//   console.log(namesUpper.join(' '));
+// };
+
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('akho oribjonov');
+
+// const messsage = 'Go to gate 23!';
+// console.log(messsage.padStart(25, '+').padEnd(35, '+'));
+// console.log('Jonas'.padStart(25, '+'));
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
+// console.log(maskCreditCard(123456543234));
+// console.log(maskCreditCard(987654356789));
+// console.log(maskCreditCard('54646635463'));
+
+// const messsage2 = 'BAD weather... All Departures Delayed ';
+// console.log(messsage2.repeat(5));
+
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+// };
+// planesInLine(5);
+// planesInLine(10);
+// planesInLine(15);
+
+////////////////////////// ASSIGNMENT 4 ///////////////////////////
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  console.log(rows);
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${`✅`.repeat(i + 1)}`);
   }
-  console.log(namesUpper.join(' '));
-};
-
-capitalizeName('jessica ann smith davis');
-capitalizeName('akho oribjonov');
-
-const messsage = 'Go to gate 23!';
-console.log(messsage.padStart(25, '+').padEnd(35, '+'));
-console.log('Jonas'.padStart(25, '+'));
-
-const maskCreditCard = function (number) {
-  const str = number + '';
-  const last = str.slice(-4);
-  return last.padStart(str.length, '*');
-};
-console.log(maskCreditCard(123456543234));
-console.log(maskCreditCard(987654356789));
-console.log(maskCreditCard('54646635463'));
-
-const messsage2 = 'BAD weather... All Departures Delayed ';
-console.log(messsage2.repeat(5));
-
-const planesInLine = function (n) {
-  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
-};
-planesInLine(5);
-planesInLine(10);
-planesInLine(15);
+});
