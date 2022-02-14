@@ -540,34 +540,69 @@ const restaurant = {
 
 ////////////////////////// ASSIGNMENT 3 ///////////////////////////
 
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '� Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '� Substitution'],
-  [64, '� Yellow card'],
-  [69, '� Red card'],
-  [70, '� Substitution'],
-  [72, '� Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '� Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '� Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '� Substitution'],
+//   [64, '� Yellow card'],
+//   [69, '� Red card'],
+//   [70, '� Substitution'],
+//   [72, '� Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '� Yellow card'],
+// ]);
 
-// 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// // 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-// 2.
-gameEvents.delete(64);
-console.log(gameEvents);
+// // 2.
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-// 3.
-const time = [...gameEvents.keys()].pop();
-console.log(`An event happened on average ${time / gameEvents.size} minutes`);
+// // 3.
+// const time = [...gameEvents.keys()].pop();
+// console.log(`An event happened on average ${time / gameEvents.size} minutes`);
 
-// 4.
-for (const [minute, event] of gameEvents) {
-  const half = minute <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${minute}: ${event}`);
-}
+// // 4.
+// for (const [minute, event] of gameEvents) {
+//   const half = minute <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${minute}: ${event}`);
+// }
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+console.log('B737'.length);
+console.log(airline.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log('You got the middle seat');
+  } else {
+    console.log('You got lucky');
+  }
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('12C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas'));
