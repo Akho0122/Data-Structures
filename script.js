@@ -661,6 +661,7 @@ console.log(newName);
 
 const capitalizeName = function (name) {
   const splitted = name.split(' ');
+  console.log(splitted);
   const namesUpper = [];
   for (const el of splitted) {
     namesUpper.push(el.replace(el[0], el[0].toUpperCase()));
@@ -670,3 +671,26 @@ const capitalizeName = function (name) {
 
 capitalizeName('jessica ann smith davis');
 capitalizeName('akho oribjonov');
+
+const messsage = 'Go to gate 23!';
+console.log(messsage.padStart(25, '+').padEnd(35, '+'));
+console.log('Jonas'.padStart(25, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+console.log(maskCreditCard(123456543234));
+console.log(maskCreditCard(987654356789));
+console.log(maskCreditCard('54646635463'));
+
+const messsage2 = 'BAD weather... All Departures Delayed ';
+console.log(messsage2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
+planesInLine(5);
+planesInLine(10);
+planesInLine(15);
